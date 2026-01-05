@@ -1,4 +1,4 @@
-# biliCLI - B站视频本地音频播放器
+# biliMusicPlayer-CLI - B站视频本地音频播放器
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=flat&logo=rust&logoColor=white)
