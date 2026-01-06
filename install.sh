@@ -10,7 +10,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}🎵 biliCLI 一键安装脚本${NC}"
+echo -e "${GREEN}🎵 bilimusicplayer-cli 一键安装脚本${NC}"
 echo -e "${YELLOW}适用于免编译安装${NC}"
 echo ""
 
@@ -49,7 +49,7 @@ echo "  架构: $ARCH"
 echo ""
 
 # GitHub仓库信息
-GITHUB_REPO="diyiliumin/biliCLI"
+GITHUB_REPO="diyiliumin/bilimusicplayer-cli"
 GITHUB_API="https://api.github.com/repos/$GITHUB_REPO/releases/latest"
 
 # 获取最新版本
@@ -66,7 +66,7 @@ fi
 echo -e "${GREEN}✅ 最新版本: $LATEST_RELEASE${NC}"
 
 # 创建安装目录
-INSTALL_DIR="$HOME/.local/bin/biliCLI"
+INSTALL_DIR="$HOME/.local/bin/bilimusicplayer-cli"
 mkdir -p "$INSTALL_DIR"
 
 echo -e "${YELLOW}📦 安装目录: $INSTALL_DIR${NC}"
@@ -113,10 +113,10 @@ echo -e "${YELLOW}🔗 创建快捷方式...${NC}"
 mkdir -p "$HOME/.local/bin"
 
 # 创建启动脚本
-cat > "$HOME/.local/bin/bilicli" << 'EOF'
+cat > "$HOME/.local/bin/bilimusicplayer-cli" << 'EOF'
 #!/bin/bash
-# biliCLI 启动器
-INSTALL_DIR="$HOME/.local/bin/biliCLI"
+# bilimusicplayer-cli 启动器
+INSTALL_DIR="$HOME/.local/bin/bilimusicplayer-cli"
 cd "$INSTALL_DIR"
 ./launch "$@"
 EOF
@@ -157,4 +157,4 @@ fi
 cd /
 rm -rf "$TEMP_DIR"
 
-echo -e "${GREEN}✨ 享受 biliCLI 吧！${NC}"
+echo -e "${GREEN}✨ 享受 bilimusicplayer-cli 吧！${NC}"

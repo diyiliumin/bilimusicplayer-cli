@@ -7,7 +7,7 @@
 ### 1. 直接访问GitHub Release页面
 打开浏览器，访问：
 ```
-https://github.com/diyiliumin/biliCLI/releases/new
+https://github.com/diyiliumin/bilimusicplayer-cli/releases/new
 ```
 
 ### 2. 填写Release信息（复制粘贴）
@@ -30,13 +30,13 @@ https://github.com/diyiliumin/biliCLI/releases/new
 
 ### 方式一：一键安装（推荐）
 ```bash
-curl -sSL https://raw.githubusercontent.com/diyiliumin/biliCLI/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/diyiliumin/bilimusicplayer-cli/main/install.sh | bash
 ```
 
 ### 方式二：手动下载
 ```bash
 # 下载并解压
-wget https://github.com/diyiliumin/biliCLI/releases/download/v1.0.0/biliCLI-linux-amd64.tar.gz
+wget https://github.com/diyiliumin/bilimusicplayer-cli/releases/download/v1.0.0/biliCLI-linux-amd64.tar.gz
 tar -xzf biliCLI-linux-amd64.tar.gz
 cd biliCLI-linux-amd64
 
@@ -109,13 +109,13 @@ biliCLI-linux-amd64/
 ### 立即验证（上传后）：
 ```bash
 # 测试下载链接
-wget https://github.com/diyiliumin/biliCLI/releases/download/v1.0.0/biliCLI-linux-amd64.tar.gz
+wget https://github.com/diyiliumin/bilimusicplayer-cli/releases/download/v1.0.0/biliCLI-linux-amd64.tar.gz
 
 # 检查文件
 tar -tzf biliCLI-linux-amd64.tar.gz
 
 # 测试安装脚本
-curl -sSL https://raw.githubusercontent.com/diyiliumin/biliCLI/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/diyiliumin/bilimusicplayer-cli/main/install.sh | bash
 ```
 
 ### 预期结果：

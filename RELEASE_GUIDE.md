@@ -12,7 +12,7 @@
 ## 🎯 手动上传步骤
 
 ### 1. 访问GitHub Release页面
-打开：https://github.com/diyiliumin/biliCLI/releases
+打开：https://github.com/diyiliumin/bilimusicplayer-cli/releases
 
 ### 2. 创建新Release
 点击 "Draft a new release" 按钮
@@ -40,10 +40,10 @@
 ## 🚀 快速安装
 ```bash
 # 一键安装（推荐）
-curl -sSL https://raw.githubusercontent.com/diyiliumin/biliCLI/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/diyiliumin/bilimusicplayer-cli/main/install.sh | bash
 
 # 手动安装
-wget https://github.com/diyiliumin/biliCLI/releases/download/v1.0.0/biliCLI-linux-amd64.tar.gz
+wget https://github.com/diyiliumin/bilimusicplayer-cli/releases/download/v1.0.0/biliCLI-linux-amd64.tar.gz
 tar -xzf biliCLI-linux-amd64.tar.gz
 cd biliCLI-linux-amd64
 ./launch
@@ -86,7 +86,7 @@ cd biliCLI-linux-amd64
 发布后，验证下载链接是否有效：
 ```bash
 # 测试下载链接
-wget https://github.com/diyiliumin/biliCLI/releases/download/v1.0.0/biliCLI-linux-amd64.tar.gz
+wget https://github.com/diyiliumin/bilimusicplayer-cli/releases/download/v1.0.0/biliCLI-linux-amd64.tar.gz
 
 # 检查文件完整性
 tar -tzf biliCLI-linux-amd64.tar.gz
@@ -95,7 +95,7 @@ tar -tzf biliCLI-linux-amd64.tar.gz
 ### 测试一键安装脚本
 ```bash
 # 测试安装脚本
-curl -sSL https://raw.githubusercontent.com/diyiliumin/biliCLI/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/diyiliumin/bilimusicplayer-cli/main/install.sh | bash
 ```
 
 ## 🎯 后续版本发布流程

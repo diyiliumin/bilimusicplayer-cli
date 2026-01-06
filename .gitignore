@@ -45,6 +45,13 @@ tree.json
 *.tmp
 .cache/
 
+# Release and distribution files
+release-package/
+dist/
+*.tar.gz
+*.zip
+*.7z
+
 # OS generated
 .DS_Store
 .DS_Store?
