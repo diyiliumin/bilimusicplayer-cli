@@ -9,7 +9,6 @@ buildtree/target/
 cmd/tui/mytui
 fake_hex
 launch
-play
 
 # IDE and editor files
 .vscode/
