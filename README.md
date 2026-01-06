@@ -53,17 +53,16 @@ brew install pkg-config ffmpeg vim
 
 ```bash
 # 一键安装脚本（自动检测系统架构）
-curl -sSL https://raw.githubusercontent.com/diyiliumin/biliCLI/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/diyiliumin/bilimusicplayer-cli/main/install.sh | bash
 
 # 或者手动下载
-wget https://github.com/diyiliumin/biliCLI/releases/latest/download/biliCLI-linux-amd64.tar.gz
+wget https://github.com/diyiliumin/bilimusicplayer-cli/releases/latest/download/biliCLI-linux-amd64.tar.gz
 tar -xzf biliCLI-linux-amd64.tar.gz
 cd biliCLI-linux-amd64
 ```
 
 **📦 可用版本：**
 - ✅ `biliCLI-linux-amd64.tar.gz` - Linux 64位
-- ✅ `biliCLI-darwin-amd64.tar.gz` - macOS 64位
 - ⚠️ Windows用户建议使用WSL
 
 #### 🔧 方式二：从源码编译
@@ -92,7 +91,7 @@ bilimusicplayer-cli/                    # 项目根目录
 
 ##### 1. 获取项目代码
 ```bash
-git clone https://github.com/diyiliumin/biliCLI.git
+git clone https://github.com/diyiliumin/bilimusicplayer-cli.git
 cd biliCLI
 ```
 
@@ -180,7 +179,7 @@ sudo yum install ffmpeg python3 vim-common
 
 ```bash
 # 1. 下载并解压（以Linux为例）
-wget https://github.com/diyiliumin/biliCLI/releases/latest/download/biliCLI-linux-amd64.tar.gz
+wget https://github.com/diyiliumin/bilimusicplayer-cli/releases/latest/download/biliCLI-linux-amd64.tar.gz
 tar -xzf biliCLI-linux-amd64.tar.gz
 cd biliCLI-linux-amd64
 
@@ -248,7 +247,8 @@ cd cmd/tui && ./mytui      # ❌ 错误 - 路径依赖会失败
 |--------|----------|
 | **j/k** | 上下移动光标 |
 | **h** | 收起目录节点 |
-| **l/Enter** | 展开目录节点或播放选中项 |
+| **l** | 展开目录节点|
+| **Enter** | 播放选中项 |
 | **Space** | 选择/取消选中项目 |
 | **p** | 播放选中项 |
 | **q/Ctrl+C** | 退出程序 |
