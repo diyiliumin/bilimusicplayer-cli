@@ -45,9 +45,32 @@ sudo apt-get install pkg-config build-essential ffmpeg vim
 brew install pkg-config ffmpeg vim
 ```
 
-### 🛠️ 安装步骤
+### 🚀 安装方式（任选其一）
 
-#### ⚠️ 重要：路径配置说明
+#### 🎯 方式一：一键安装（推荐 - 免编译）
+
+适合不想编译的用户，提供预编译二进制：
+
+```bash
+# 一键安装脚本（自动检测系统架构）
+curl -sSL https://raw.githubusercontent.com/diyiliumin/biliCLI/main/install.sh | bash
+
+# 或者手动下载
+wget https://github.com/diyiliumin/biliCLI/releases/latest/download/biliCLI-linux-amd64.tar.gz
+tar -xzf biliCLI-linux-amd64.tar.gz
+cd biliCLI-linux-amd64
+```
+
+**📦 可用版本：**
+- ✅ `biliCLI-linux-amd64.tar.gz` - Linux 64位
+- ✅ `biliCLI-darwin-amd64.tar.gz` - macOS 64位
+- ⚠️ Windows用户建议使用WSL
+
+#### 🔧 方式二：从源码编译
+
+适合开发者或需要自定义的用户：
+
+##### ⚠️ 重要：路径配置说明
 本项目各组件存在硬编码路径依赖，请务必按照以下结构编译和部署：
 
 ```
@@ -67,13 +90,13 @@ bilimusicplayer-cli/                    # 项目根目录
 └── config.json             # 配置文件（必须）
 ```
 
-#### 1. 获取项目代码
+##### 1. 获取项目代码
 ```bash
-git clone https://github.com/diyiliumin/bilimusicplayer-cli.git
-cd bilimusicplayer-cli
+git clone https://github.com/diyiliumin/biliCLI.git
+cd biliCLI
 ```
 
-#### 2. 编译所有组件
+##### 2. 编译所有组件
 
 ##### 方法1：使用Makefile（推荐）
 ```bash
@@ -114,6 +137,8 @@ ls -la fake_hex launch                     # C工具
 ls -la 01_read_config.py 02_find_m4s.py 03_detect_av.py 04_play.py play  # 脚本文件
 ```
 
+#### 📋 安装后配置（两种方式通用）
+
 #### 3. 配置文件
 编辑 `config.json`，设置你的B站视频下载目录：
 ```json
@@ -127,23 +152,59 @@ ls -la 01_read_config.py 02_find_m4s.py 03_detect_av.py 04_play.py play  # 脚�
 - **Linux**: `~/Videos/Bilibili`
 - **macOS**: `~/Movies/Bilibili`
 
-#### 4. 路径依赖检查
-```bash
-# 运行依赖检查脚本（如果有）
-./check_dependencies.sh
+#### 4. 系统依赖检查
+无论哪种安装方式，都需要确保系统已安装：
 
-# 手动检查关键路径
-echo "检查tree.json路径:"
-ls -la buildtree/tree.json
-echo "检查配置文件:"
-ls -la config.json
-echo "检查所有组件:"
-ls -la buildtree/target/release/buildtree cmd/tui/mytui fake_hex launch play
+```bash
+# 检查必需依赖
+ffplay -version    # 音频播放
+python3 --version  # Python脚本
+xxd -help         # 十六进制显示
 ```
 
-## 📖 使用指南
+**安装系统依赖：**
+```bash
+# Ubuntu/Debian
+sudo apt-get install ffmpeg python3 vim
 
-### 🎯 基本流程
+# macOS
+brew install ffmpeg python3
+
+# CentOS/RHEL
+sudo yum install ffmpeg python3 vim-common
+```
+
+## ⚡ 快速开始（免编译用户）
+
+### 🎯 一键安装版本
+
+```bash
+# 1. 下载并解压（以Linux为例）
+wget https://github.com/diyiliumin/biliCLI/releases/latest/download/biliCLI-linux-amd64.tar.gz
+tar -xzf biliCLI-linux-amd64.tar.gz
+cd biliCLI-linux-amd64
+
+# 2. 编辑配置文件
+nano config.json
+# 修改为：{"root": "/你的/音频/目录/路径"}
+
+# 3. 运行！
+./launch
+```
+
+### 🎮 首次使用
+
+1. **启动程序**：`./launch`
+2. **构建索引**：按提示操作或手动运行 `./buildtree/target/release/buildtree`
+3. **浏览音频**：使用方向键导航
+4. **播放音频**：选中项目按 `p` 键
+5. **控制播放**：
+   - `p` - 暂停/继续
+   - `x` - 退出播放
+
+## 📖 详细使用指南
+
+### 🎯 基本流程（详细版）
 
 #### 首次使用 - 构建音频索引
 ```bash
@@ -222,7 +283,39 @@ cd cmd/tui && ./mytui      # ❌ 错误 - 路径依赖会失败
 
 ## 🔧 常见问题解答
 
-### ❌ 路径相关错误
+### ⚡ 免编译版本问题
+
+#### ❓ 下载后无法运行
+**症状**：`bash: ./launch: Permission denied`
+**解决**：
+```bash
+chmod +x launch play buildtree/target/release/buildtree cmd/tui/mytui
+```
+
+#### ❓ 提示缺少依赖
+**症状**：`ffplay: command not found`
+**解决**：
+```bash
+# Ubuntu/Debian
+sudo apt-get install ffmpeg
+
+# macOS
+brew install ffmpeg
+```
+
+#### ❓ 目录结构不对
+**症状**：各种文件找不到错误
+**解决**：确保解压后保持原始目录结构，不要单独移动文件：
+```
+biliCLI-linux-amd64/
+├── buildtree/target/release/buildtree  # 必须在这个位置
+├── cmd/tui/mytui                       # 必须在这个位置
+├── play fake_hex launch                # 必须在根目录
+├── *.py                               # 所有脚本必须在根目录
+└── config.json                        # 配置文件必须在根目录
+```
+
+### ❌ 路径相关错误（编译版本）
 
 #### ❓ 错误："找不到 tree.json 文件"
 **原因**：运行路径不正确或索引未生成
